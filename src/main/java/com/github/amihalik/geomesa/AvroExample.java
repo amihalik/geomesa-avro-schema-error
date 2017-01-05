@@ -5,8 +5,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.avro.AvroRuntimeException;
-import org.apache.avro.Schema;
 import org.apache.avro.file.DataFileStream;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericDatumReader;
@@ -82,12 +80,8 @@ public class AvroExample {
         featureData = serializeSimpleFeature(featureWithUserdata);
         System.out.println("Size :: " + featureData.length);
 
-        try {
-            deserializedFeature = deserializeWithAvro(featureData);
-            System.out.println("deserializedFeature :: " + deserializedFeature);
-        } catch (AvroRuntimeException e) {
-            System.out.println(e.getMessage());
-        }
+        deserializedFeature = deserializeWithAvro(featureData);
+        System.out.println("deserializedFeature :: " + deserializedFeature);
 
     }
 
